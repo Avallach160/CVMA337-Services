@@ -21,10 +21,21 @@ module.exports = {
 		encryptedPassword: {
 			type: 'string'
 		},
-		positions: {
+		motorcycle: {
+			type: 'string'
+		},
+		phoneNumber: {
+			type: 'string'
+		},
+		position: {
 			collection: 'rank',
 			via: 'holders',
 			dominant: true
+		},
+		toJSON: function() {
+			var obj = this.toObject();
+			delete obj.encryptedPassword;
+			return obj;
 		}
 	},
 

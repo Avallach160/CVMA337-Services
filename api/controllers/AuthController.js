@@ -26,12 +26,26 @@ module.exports = {
 		})
 	},
 	register: function(req, res) {
+		if (req.body === undefined){
+			return res.json(400, {err: 'No body found'});
+		}
 		//TODO: Do some validation on the input
 		if (req.body.password !== req.body.confirmPassword) {
 			return res.json(401, {err: 'Password doesn\'t match'});
 		}
 
-		User.create({email: req.body.email, password: req.body.password}).exec(function(err, user) {
+		var model = {
+			email: req.body.email,
+			password: req.body.password,
+			firstName: req.body.firstName,
+			lastName: req.body.lastName,
+			roadName: req.body.roadName,
+			motorcycle: req.body.motorcycle,
+			phoneNumber: req.body.phoneNumber,
+			rank: 'Member'
+		};
+
+		User.create(model).exec(function(err, user) {
 			if (err) {
 				res.json(err.status, {err: err});
 				return;
