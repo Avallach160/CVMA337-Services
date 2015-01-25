@@ -27,6 +27,10 @@ module.exports = {
 		phoneNumber: {
 			type: 'string'
 		},
+		isApproved: {
+			type: 'boolean',
+			defaultsTo: false
+		},
 		position: {
 			collection: 'rank',
 			via: 'holders',
