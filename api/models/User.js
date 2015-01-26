@@ -33,8 +33,7 @@ module.exports = {
 		},
 		position: {
 			collection: 'rank',
-			via: 'holders',
-			dominant: true
+			via: 'holders'
 		},
 		toJSON: function() {
 			var obj = this.toObject();
