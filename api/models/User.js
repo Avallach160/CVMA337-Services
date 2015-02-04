@@ -1,40 +1,40 @@
 var bcrypt = require('bcrypt-nodejs');
 module.exports = {
 	attributes: {
-		email: {
-			type: 'email',
-			unique: true,
-			email: true,
-			required: true
-		},
-		firstName: {
-			type: 'string',
-			required: true
-		},
-		lastName: {
-			type: 'string',
-			required: true
-		},
-		roadName: {
-			type: 'string'
-		},
-		encryptedPassword: {
-			type: 'string'
-		},
-		motorcycle: {
-			type: 'string'
-		},
-		phoneNumber: {
-			type: 'string'
-		},
-		isApproved: {
-			type: 'boolean',
-			defaultsTo: false
-		},
-		position: {
-			collection: 'rank',
-			via: 'holders'
-		},
+		// email: {
+		// 	type: 'email',
+		// 	unique: true,
+		// 	email: true,
+		// 	required: true
+		// },
+		// firstName: {
+		// 	type: 'string',
+		// 	required: true
+		// },
+		// lastName: {
+		// 	type: 'string',
+		// 	required: true
+		// },
+		// roadName: {
+		// 	type: 'string'
+		// },
+		// encryptedPassword: {
+		// 	type: 'string'
+		// },
+		// motorcycle: {
+		// 	type: 'string'
+		// },
+		// phoneNumber: {
+		// 	type: 'string'
+		// },
+		// isApproved: {
+		// 	type: 'boolean',
+		// 	defaultsTo: false
+		// },
+		// position: {
+		// 	collection: 'rank',
+		// 	via: 'holders'
+		// },
 		toJSON: function() {
 			var obj = this.toObject();
 			delete obj.encryptedPassword;

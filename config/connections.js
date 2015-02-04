@@ -18,7 +18,7 @@
  * For more information on configuration, check out:
  * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.connections.html
  */
-
+var local = require('./local.js');
 module.exports.connections = {
 
   /***************************************************************************
@@ -40,12 +40,12 @@ module.exports.connections = {
   * Run: npm install sails-mysql                                             *
   *                                                                          *
   ***************************************************************************/
-  someMysqlServer: {
+  mySql: {
     adapter: 'sails-mysql',
-    host: 'YOUR_MYSQL_SERVER_HOSTNAME_OR_IP_ADDRESS',
-    user: 'YOUR_MYSQL_USER',
-    password: 'YOUR_MYSQL_PASSWORD',
-    database: 'YOUR_MYSQL_DB'
+    host: local.sqlHost,
+    user: local.sqlUser,
+    password: local.sqlPw,
+    database: 'cvma'
   },
 
   /***************************************************************************
