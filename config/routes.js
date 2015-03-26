@@ -45,5 +45,5 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-  // 'POST /auth/register': 'AuthController.register',
+  'POST /mail': 'MailController.send',
 };
