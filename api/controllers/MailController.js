@@ -1,12 +1,19 @@
 var nodemailer = require('nodemailer');
+var local = require('../../config/local.js');
 module.exports = {
 	send: function(req, res){
-		var transporter = nodemailer.createTransport();
+		var transporter = nodemailer.createTransport({
+			service: 'gmail',
+			auth: {
+				user: local.cmvaMailUser,
+				pass: local.cvmaMailPw
+			}
+		});
 		transporter.sendMail({
-		    from: 'cvma33.7@gmail.com',
-		    to: 'cbaird@kairyt.com',
-		    subject: 'hello',
-		    text: 'hello world!'
+		    from: 'cvma337@gmail.com',
+		    to: req.body.to,
+		    subject: req.body.subject,
+		    html: req.body.body
 		}, function(err, success){
 			if (err !== null){
 				return res.json({errorSendingMail: err});
