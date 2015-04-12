@@ -45,5 +45,5 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-  'POST /mail': 'MailController.send',
+  'POST /mail': 'MailController.send'
 };

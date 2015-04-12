@@ -24,7 +24,7 @@ module.exports.log = {
   *                                                                          *
   ***************************************************************************/
 
-  level: 'verbose',
+  level: 'info',
   filePath: 'cvma-sails.log'
 
 };
