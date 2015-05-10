@@ -20,7 +20,11 @@ module.exports = {
 				if (!valid) {
 					return res.json(401, {err: 'invalid email or password'});
 				} else {
-					res.json({user: user, token: sailsTokenAuth.issueToken(user.id)});
+          if (!user.isApproved){
+            res.json(401, {err: 'pending approval'});
+          } else {
+            res.json({user: user, token: sailsTokenAuth.issueToken(user.id)});
+          }
 				}
 			});
 		})
@@ -33,7 +37,7 @@ module.exports = {
 		if (req.body.password !== req.body.confirmPassword) {
 			return res.json(401, {err: 'Password doesn\'t match'});
 		}
-		
+
 		var model = {
 			email: req.body.email,
 			password: req.body.password,
@@ -54,5 +58,5 @@ module.exports = {
 				res.json({user: user, token: sailsTokenAuth.issueToken(user.id)});
 			}
 		});
-	}		
+	}
 }

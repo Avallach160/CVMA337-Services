@@ -45,5 +45,13 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-  'POST /mail': 'MailController.send'
+  'POST /mail': 'MailController.send',
+  'get /public/images/*': {
+    controller: 'FileController',
+    action: 'get'
+  },
+  'get /public/images': {
+    controller: 'FileController',
+    action: 'getImagesList'
+  }
 };
